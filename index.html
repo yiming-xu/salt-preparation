@@ -10,7 +10,7 @@
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Preparation of Salt - ZnSO4.</tw-noscript></noscript></tw-story>
 <tw-storydata name="Preparation of Salt - ZnSO4" startnode="1" creator="Twine" creator-version="2.5.1" format="Harlowe" format-version="3.3.3" ifid="89CA40A6-E147-4E34-AF66-13FA57420B09" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">img {
-  width: 100%;
+  max-width: 100%
   height: auto;
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Beginning" tags="" position="500,500" size="100,100">(set: $sub to (text-style:&quot;subscript&quot;))
 **Planning Phase**
@@ -18,7 +18,6 @@ Let us try to prepare the salt: ZnSO$sub[4].
 
 In this story, you are allowed to do different things starting from reagents of your choice. The final goal is to obtain a pure, dry sample of ZnSO$sub[4].
 
-&lt;img src=&quot;images/cupcakeIpsum.jpg&quot; alt=&quot;testimg&quot; width=&quot;500&quot; height=&quot;600&quot;&gt;
 
 Which of the following methods of salt preparation would you choose:
 1. [[Acid and Insoluble Solid-&gt;Method1]]
@@ -35,11 +34,12 @@ This is the best method to make ZnSO$sub[4], as you can use insoluble Zn metal o
 
 You would need to use to choose an appropriate //acid// and //solid// for the reaction. Which solid would you choose?
 
-(link: &#39;&lt;img src=&quot;images/zinc.jpg&quot; alt=&quot;zinc metal&quot; width=&quot;450&quot; height=&quot;400&quot;&gt;&#39;)[(set: $cation to &quot;zinc metal&quot;)(goto: &quot;Choose Acid&quot;)]
-[[Zinc nitrate]]
-(link: &quot;Zinc hydroxide&quot;)[(set: $cation to &quot;zinc hydroxide&quot;)(goto: &quot;Choose Acid&quot;)]
-(link: &quot;Zinc carbonate&quot;)[(set: $cation to &quot;zinc carbonate&quot;)(goto: &quot;Choose Acid&quot;)]
-&lt;!-- [[Choose Acid]] --&gt;</tw-passagedata><tw-passagedata pid="4" name="Method3" tags="" position="500,700" size="100,100">**Planning Phase**
+(link: &#39;Zinc metal&lt;br&gt;&lt;img src=&quot;images/zinc.jpg&quot; alt=&quot;zinc metal&quot; width=&quot;225&quot; height=&quot;200&quot;&gt;&#39;)[(set: $cation to &quot;zinc metal&quot;)(goto: &quot;Choose Acid&quot;)]
+(link: &#39;Zinc nitrate&lt;br&gt;&lt;img src=&quot;images/zinc_nitrate.jpg&quot; alt=&quot;zinc nitrate&quot; width=&quot;225&quot; height=&quot;200&quot;&gt;&#39;)[(goto: &quot;Zinc nitrate&quot;)]
+(link: &#39;Zinc hydroxide&lt;br&gt;&lt;img src=&quot;images/zinc_hydroxide.jpg&quot; alt=&quot;zinc hydroxide&quot; width=&quot;225&quot; height=&quot;200&quot;&gt;&#39;)[(set: $cation to &quot;zinc hydroxide&quot;)(goto: &quot;Choose Acid&quot;)]
+(link: &#39;Zinc carbonate&lt;br&gt;&lt;img src=&quot;images/zinc_carbonate.jpg&quot; alt=&quot;zinc carbonate&quot; width=&quot;225&quot; height=&quot;200&quot;&gt;&#39;)[(set: $cation to &quot;zinc carbonate&quot;)(goto: &quot;Choose Acid&quot;)]
+&lt;!-- [[Choose Acid]] --&gt;
+&lt;!-- [[Zinc nitrate]] --&gt;</tw-passagedata><tw-passagedata pid="4" name="Method3" tags="" position="500,700" size="100,100">**Planning Phase**
 You have chosen to synthesize ZnSO$sub[4] using precipitation.
 
 Titration is used when the salt is insoluble in water. In this case, as ZnSO$sub[4] is soluble in water, you should not use precipitation.
