@@ -12,8 +12,7 @@
 <tw-storydata name="Preparation of Salt - ZnSO4" startnode="1" creator="Twine" creator-version="2.5.1" format="Harlowe" format-version="3.3.3" ifid="89CA40A6-E147-4E34-AF66-13FA57420B09" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">img {
   max-width: 100%
   height: auto;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Beginning" tags="" position="500,500" size="100,100">(set: $sub to (text-style:&quot;subscript&quot;))
-**Planning Phase**
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Beginning" tags="" position="500,500" size="100,100">**Planning Phase**
 Let us try to prepare the salt: ZnSO$sub[4].
 
 In this story, you are allowed to do different things starting from reagents of your choice. The final goal is to obtain a pure, dry sample of ZnSO$sub[4].
@@ -34,10 +33,10 @@ This is the best method to make ZnSO$sub[4], as you can use insoluble Zn metal o
 
 You would need to use to choose an appropriate //acid// and //solid// for the reaction. Which solid would you choose?
 
-(link: &#39;Zinc metal&lt;br&gt;&lt;img src=&quot;images/zinc.jpg&quot; alt=&quot;zinc metal&quot; width=&quot;225&quot; height=&quot;200&quot;&gt;&#39;)[(set: $cation to &quot;zinc metal&quot;)(goto: &quot;Choose Acid&quot;)]
+(link: &#39;Zinc metal&lt;br&gt;&lt;img src=&quot;images/zinc.jpg&quot; alt=&quot;zinc metal&quot; width=&quot;225&quot; height=&quot;200&quot;&gt;&#39;)[(set: $cation to &quot;zinc metal&quot;)(set: $cation_symbol to &quot;zn&quot;)(goto: &quot;Choose Acid&quot;)]
 (link: &#39;Zinc nitrate&lt;br&gt;&lt;img src=&quot;images/zinc_nitrate.jpg&quot; alt=&quot;zinc nitrate&quot; width=&quot;225&quot; height=&quot;200&quot;&gt;&#39;)[(goto: &quot;Zinc nitrate&quot;)]
-(link: &#39;Zinc hydroxide&lt;br&gt;&lt;img src=&quot;images/zinc_hydroxide.jpg&quot; alt=&quot;zinc hydroxide&quot; width=&quot;225&quot; height=&quot;200&quot;&gt;&#39;)[(set: $cation to &quot;zinc hydroxide&quot;)(goto: &quot;Choose Acid&quot;)]
-(link: &#39;Zinc carbonate&lt;br&gt;&lt;img src=&quot;images/zinc_carbonate.jpg&quot; alt=&quot;zinc carbonate&quot; width=&quot;225&quot; height=&quot;200&quot;&gt;&#39;)[(set: $cation to &quot;zinc carbonate&quot;)(goto: &quot;Choose Acid&quot;)]
+(link: &#39;Zinc hydroxide&lt;br&gt;&lt;img src=&quot;images/zinc_hydroxide.jpg&quot; alt=&quot;zinc hydroxide&quot; width=&quot;225&quot; height=&quot;200&quot;&gt;&#39;)[(set: $cation to &quot;zinc hydroxide&quot;)(set: $cation_symbol to &quot;znoh2&quot;)(goto: &quot;Choose Acid&quot;)]
+(link: &#39;Zinc carbonate&lt;br&gt;&lt;img src=&quot;images/zinc_carbonate.jpg&quot; alt=&quot;zinc carbonate&quot; width=&quot;225&quot; height=&quot;200&quot;&gt;&#39;)[(set: $cation to &quot;zinc carbonate&quot;)(set: $cation_symbol to &quot;znco3&quot;)(goto: &quot;Choose Acid&quot;)]
 &lt;!-- [[Choose Acid]] --&gt;
 &lt;!-- [[Zinc nitrate]] --&gt;</tw-passagedata><tw-passagedata pid="4" name="Method3" tags="" position="500,700" size="100,100">**Planning Phase**
 You have chosen to synthesize ZnSO$sub[4] using precipitation.
@@ -54,24 +53,31 @@ Reagent: $cation
 
 You chose $cation as the insoluble solid. What acid would you like to use with it?
 
-(link: &quot;Hydrochloric acid&quot;)[(set: $acid to &quot;hydrochloric acid&quot;)(goto: &quot;Add Solid&quot;)]
-(link: &quot;Nitric acid&quot;)[(set: $acid to &quot;nitric acid&quot;)(goto: &quot;Add Solid&quot;)]
-(link: &quot;Sulfuric acid&quot;)[(set: $acid to &quot;sulfuric acid&quot;)(goto: &quot;Add Solid&quot;)]
+&lt;img src=&quot;images/acids.jpg&quot; alt=&quot;acids&quot; width=&quot;520&quot; height=&quot;540&quot;&gt;
+
+(link: &quot;Sulfuric acid&quot;)[(set: $acid to &quot;sulfuric acid&quot;)(set: $acid_symbol to &quot;h2so4&quot;)(goto: &quot;Add Solid&quot;)]
+(link: &quot;Nitric acid&quot;)[(set: $acid to &quot;nitric acid&quot;)(set: $acid_symbol to &quot;hno3&quot;)(goto: &quot;Add Solid&quot;)]
+(link: &quot;Hydrochloric acid&quot;)[(set: $acid to &quot;hydrochloric acid&quot;)(set: $acid_symbol to &quot;hcl&quot;)(goto: &quot;Add Solid&quot;)]
 &lt;!-- [[Add Solid]] --&gt;</tw-passagedata><tw-passagedata pid="7" name="Add Solid" tags="" position="950,500" size="100,100">**Preparation Phase**
 You have decided to use  $cation and $acid as your reagents.
-(set: $acid_repeats to 0)
-(set: $cation_repeats to 0)
 
+(link: &quot;Pour some acid...&quot;)[==
+(print: &#39;&lt;img src=&quot;images/pour_&#39; + $acid_symbol + &#39;.jpg&quot; alt=&quot;acids&quot; width=&quot;430&quot; height=&quot;283&quot;&gt;&#39;)
 You carefully poured approximately 100 cm^^3^^ of $acid into a 250 cm^^3^^ beaker, and readied yourself to add $cation into it.
-
+(link: &quot;Add some $cation into $acid...&quot;)[==
 You added some $cation into the $acid...
-
 (link: &quot;You observed that...&quot;)[==
-(if: $cation is &quot;zinc metal&quot;)[You observed rigorous effervescence on the surface of the zinc strip. The zinc strip took some time to dissolve.]
-(if: $cation is &quot;zinc hydroxide&quot;)[You observed that the powdered zinc hydroxide dissolved in the acid completely.]
-(if: $cation is &quot;zinc carbonate&quot;)[You observed rigorous effervescence when the powdered zinc carbonate is added, and all the zinc carbonate powder dissolved completely.]
+(if: $cation is &quot;zinc metal&quot;)[[($smallImg: $acid_symbol + &#39;_1_zn_1&#39;)]&lt;scene|
+You observed rigorous effervescence on the surface of the zinc granules. 
+(after: time + 4s)[(t8n:&quot;dissolve&quot;)[The zinc granules took some time to dissolve. ](replace:?scene)[($smallImg: $acid_symbol + &#39;_1_zn_0&#39;)]]]\
+(else-if: $cation is &quot;zinc hydroxide&quot;)[[($smallImg: $acid_symbol + &#39;_1_znoh2_1&#39;)]&lt;scene|
+(after: time + 2s)[(t8n:&quot;dissolve&quot;)[You observed that the powdered zinc hydroxide dissolved in the acid completely.](replace:?scene)[($smallImg: $acid_symbol + &#39;_1_znoh2_0&#39;)]]]\
+(else-if: $cation is &quot;zinc carbonate&quot;)[[($smallImg: $acid_symbol + &#39;_1_znco3_1&#39;)]&lt;scene|
+You observed rigorous effervescence when the powdered zinc carbonate is added.
+(after: time + 2s)[(t8n:&quot;dissolve&quot;)[All the zinc carbonate powder dissolved quickly and completely.](replace:?scene)[($smallImg: $acid_symbol + &#39;_1_znco3_0&#39;)]]]\
+(after: time + 6s)[=
 
-What do you do now?
+$tr[What do you do now?]
 
 [[Add more solid]]
 [[Add more acid]]
@@ -109,7 +115,7 @@ What do you do now?
 [[Add more solid]]
 [[Add more acid]]
 [[Filter it]]]</tw-passagedata><tw-passagedata pid="9" name="Add more acid" tags="" position="1100,700" size="100,100">**Preparation Phase**
-You added another 50 cm^^3^^ of $acid to the acidic solution.
+You added another 100 cm^^3^^ of $acid to the acidic solution.
 (set: $acid_repeats to $acid_repeats + 1)
 
 (if: $acid_repeats is 3)[You added too much $acid and it overflowed the beaker. Your teacher heard your scream from across the laboratory, came over and assisted in the clean-up.
@@ -197,7 +203,13 @@ You dried what you hoped to be ZnSO$sub[4] between several sheets of filter pape
 
 In the future, you could try to add excess metal, insoluble base or carbonate to ensure that all the acids are consumed.]
 
-[[Return to the beginning-&gt;Beginning]]</tw-passagedata></tw-storydata>
+[[Return to the beginning-&gt;Beginning]]</tw-passagedata><tw-passagedata pid="18" name="ConfigurationStartUp" tags="header" position="350,725" size="100,100">(set: $sub to (text-style:&quot;subscript&quot;))\
+(set: $tr to (t8n: &#39;dissolve&#39;))\
+(set: $smallImg to (macro: str-type _name, [
+    (output-data: (print: &#39;&lt;img src=&quot;images/&#39; + _name + &#39;.jpg&quot; alt=&quot;&#39; + _name + &#39;&quot; width=&quot;430&quot; height=&quot;170&quot;&gt;&#39;))
+    ]))\
+(enchant: ?Link, (t8n-depart: &quot;dissolve&quot;))</tw-passagedata><tw-passagedata pid="19" name="InitializeVars" tags="startup" position="350,600" size="100,100">(set: $acid_repeats to 1)
+(set: $cation_repeats to 1)</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
