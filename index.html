@@ -67,14 +67,14 @@ You carefully poured approximately 100 cm^^3^^ of $acid into a 250 cm^^3^^ beake
 (link: &quot;Add some $cation into $acid...&quot;)[==
 You added some $cation into the $acid...
 (link: &quot;You observed that...&quot;)[==
-(if: $cation is &quot;zinc metal&quot;)[[($smallImg: $acid_symbol + &#39;_1_zn_1&#39;)]&lt;scene|
+(if: $cation is &quot;zinc metal&quot;)[[($smallImg: $acid_symbol + &#39;_1_zn_1_bubble&#39;)]&lt;scene|
 You observed rigorous effervescence on the surface of the zinc granules. 
 (after: time + 4s)[(t8n:&quot;dissolve&quot;)[The zinc granules took some time to dissolve. ](replace:?scene)[($smallImg: $acid_symbol + &#39;_1_zn_0&#39;)]]]\
 (else-if: $cation is &quot;zinc hydroxide&quot;)[[($smallImg: $acid_symbol + &#39;_1_znoh2_1&#39;)]&lt;scene|
 (after: time + 2s)[(t8n:&quot;dissolve&quot;)[You observed that the powdered zinc hydroxide dissolved in the acid completely.](replace:?scene)[($smallImg: $acid_symbol + &#39;_1_znoh2_0&#39;)]]]\
 (else-if: $cation is &quot;zinc carbonate&quot;)[[($smallImg: $acid_symbol + &#39;_1_znco3_1&#39;)]&lt;scene|
 You observed rigorous effervescence when the powdered zinc carbonate is added.
-(after: time + 2s)[(t8n:&quot;dissolve&quot;)[All the zinc carbonate powder dissolved quickly and completely.](replace:?scene)[($smallImg: $acid_symbol + &#39;_1_znco3_0&#39;)]]]\
+(after: time + 2s)[(t8n:&quot;dissolve&quot;)[All the zinc carbonate powder dissolved quickly and completely.](replace:?scene)[($smallImg: $acid_symbol + &#39;_1_znco3_0_bubble&#39;)]]]\
 (after: time + 6s)[=
 
 $tr[What do you do now?]
@@ -84,33 +84,51 @@ $tr[What do you do now?]
 [[Filter it]]</tw-passagedata><tw-passagedata pid="8" name="Add more solid" tags="" position="1100,300" size="100,100">**Preparation Phase**
 You carefully added a little more $cation the acidic solution.
 (set: $cation_repeats to $cation_repeats + 1)
+(set: _excess to $cation_repeats - $acid_repeats)
+(set: _acid to (str: $acid_repeats))
 
-(if: $cation_repeats - $acid_repeats is 1)[(if: $cation is &quot;zinc metal&quot;)[You observed effervescence on the surface of the zinc strip. The zinc strip took &#39;&#39;much more&#39;&#39; time to dissolve.]
-(if: $cation is &quot;zinc hydroxide&quot;)[You observed that the powdered zinc hydroxide dissolved in the acid completely &#39;&#39;after a longer time&#39;&#39;.]
-(if: $cation is &quot;zinc carbonate&quot;)[You observed rigorous effervescence when the powdered zinc carbonate is added, and all the zinc carbonate powder dissolved completely &#39;&#39;after a longer time&#39;&#39;.]
+(if: _excess is 1)[(if: $cation is &quot;zinc metal&quot;)[[($smallImg: $acid_symbol + &#39;_&#39; + _acid + &#39;_zn_1_bubble&#39;)]&lt;scene|
+You observed  effervescence on the surface of the zinc granules. 
+(after: time + 5s)[(t8n:&quot;dissolve&quot;)[The zinc granules took a &#39;&#39;much longer&#39;&#39; time to dissolve. ](replace:?scene)[($smallImg: $acid_symbol + &#39;_&#39; + _acid + &#39;_zn_0&#39;)]]]\
+(else-if: $cation is &quot;zinc hydroxide&quot;)[[($smallImg: $acid_symbol + &#39;_&#39; + _acid + &#39;_znoh2_1&#39;)]&lt;scene|
+(after: time + 3s)[(t8n:&quot;dissolve&quot;)[You observed that the powdered zinc hydroxide dissolved in the acid completely &#39;&#39;after a long time&#39;&#39;.](replace:?scene)[($smallImg: $acid_symbol + &#39;_&#39; + _acid + &#39;_znoh2_0&#39;)]]]\
+(else-if: $cation is &quot;zinc carbonate&quot;)[[($smallImg: $acid_symbol + &#39;_&#39; + _acid + &#39;_znco3_1&#39;)]&lt;scene|
+You observed effervescence when the powdered zinc carbonate is added.
+(after: time + 3s)[(t8n:&quot;dissolve&quot;)[All the zinc carbonate powder dissolved quickly and completely &#39;&#39;after a long time&#39;&#39;.](replace:?scene)[($smallImg: $acid_symbol + &#39;_&#39; + _acid + &#39;_znco3_0_bubble&#39;)]]]\
+(after: time + 6s)[=
 
-What do you do now?
+$tr[What do you do now?]
 
 [[Add more solid]]
 [[Add more acid]]
-[[Filter it]]]
-(else-if: $cation_repeats - $acid_repeats is 2)[(if: $cation is &quot;zinc metal&quot;)[You observed  effervescence on the surface of the zinc strip. The zinc strip did not complete dissolve.]\
-(else-if: $cation is &quot;zinc hydroxide&quot;)[You observed that not all of the powdered zinc hydroxide was able to dissolve in the acid..]\
-(else-if: $cation is &quot;zinc carbonate&quot;)[You observed effervescence when the powdered zinc carbonate is added, but not all of the zinc carbonate was able to dissolve..]
+[[Filter it]]]\
+(else-if: _excess is 2)[(if: $cation is &quot;zinc metal&quot;)[[($smallImg: $acid_symbol + &#39;_&#39; + _acid + &#39;_zn_1_bubble&#39;)]&lt;scene|
+You observed  effervescence on the surface of the zinc granules. 
+(after: time + 4s)[(t8n:&quot;dissolve&quot;)[The zinc granules did not completely dissolve. ](replace:?scene)[($smallImg: $acid_symbol + &#39;_&#39; + _acid + &#39;_zn_1&#39;)]]]\
+(else-if: $cation is &quot;zinc hydroxide&quot;)[($smallImg: $acid_symbol + &#39;_&#39; + _acid + &#39;_znoh2_1&#39;)(after: time + 2s)[(t8n:&quot;dissolve&quot;)[You observed that not all of the powdered zinc hydroxide was able to dissolve in the acid.]]]\
+(else-if: $cation is &quot;zinc carbonate&quot;)[[($smallImg: $acid_symbol + &#39;_&#39; + _acid + &#39;_znco3_1&#39;)]&lt;scene|
+You observed effervescence when the powdered zinc carbonate is added.
+(after: time + 2s)[(t8n:&quot;dissolve&quot;)[Not all of the zinc carbonate was able to dissolve.](replace:?scene)[($smallImg: $acid_symbol + &#39;_&#39; + _acid + &#39;_znco3_1&#39;)]]]\
+(after: time + 6s)[=
 
-What do you do now?
+$tr[What do you do now?]
 
 [[Add more solid]]
 [[Add more acid]]
-[[Filter it]]]
-(else-if: $cation_repeats is 10)[You added too much $cation, resulting in $acid overflowing the beaker. Your teacher heard your scream from across the laboratory, came over and assisted in the clean-up.
+[[Filter it]]]\
+(else-if: $cation_repeats is 5)[To your dismay, you used up all of the $cation available. You want to use some of your classmates&#39;, but the teacher is looking right at you.
 
-You are asked to repeat the experiment.
+$tr[What do you do now?]
 
-[[Back to the beginning-&gt;Method1]]]
-(else:)[You added a little more $cation that was unable to be completely dissolved. There was no observable change.
+[[Add more acid]]
+[[Filter it]]]\
+(else:)[(if: $cation is &quot;zinc metal&quot;)[($smallImg: $acid_symbol + &#39;_&#39; + _acid + &#39;_zn_1&#39;)]\
+(else-if: $cation is &quot;zinc hydroxide&quot;)[($smallImg: $acid_symbol + &#39;_&#39; + _acid + &#39;_znoh2_1&#39;)]\
+(else-if: $cation is &quot;zinc carbonate&quot;)[($smallImg: $acid_symbol + &#39;_&#39; + _acid + &#39;_znco3_1&#39;)]\
 
-What do you do now?
+You added a little more $cation that was unable to be completely dissolved. There was no observable change.
+
+$tr[What do you do now?]
 
 [[Add more solid]]
 [[Add more acid]]
@@ -209,7 +227,7 @@ In the future, you could try to add excess metal, insoluble base or carbonate to
 [[Return to the beginning-&gt;Beginning]]</tw-passagedata><tw-passagedata pid="18" name="ConfigurationStartUp" tags="header" position="350,725" size="100,100">(set: $sub to (text-style:&quot;subscript&quot;))\
 (set: $tr to (t8n: &#39;dissolve&#39;))\
 (set: $smallImg to (macro: str-type _name, [
-    (output-data: (print: &#39;&lt;img src=&quot;images/&#39; + _name + &#39;.png&quot; alt=&quot;&#39; + _name + &#39;&quot; width=&quot;430&quot; height=&quot;170&quot;&gt;&#39;))
+    (output-data: (print: &#39;&lt;img src=&quot;images/&#39; + _name + &#39;.jpg&quot; alt=&quot;&#39; + _name + &#39;&quot; width=&quot;430&quot; height=&quot;170&quot;&gt;&#39;))
     ]))\
 (enchant: ?Link, (t8n-depart: &quot;dissolve&quot;))</tw-passagedata><tw-passagedata pid="19" name="InitializeVars" tags="startup" position="350,600" size="100,100">(set: $acid_repeats to 1)
 (set: $cation_repeats to 1)</tw-passagedata></tw-storydata>
