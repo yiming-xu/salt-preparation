@@ -94,9 +94,9 @@ What do you do now?
 [[Add more solid]]
 [[Add more acid]]
 [[Filter it]]]
-(else-if: $cation_repeats - $acid_repeats is 2)[(if: $cation is &quot;zinc metal&quot;)[You observed  effervescence on the surface of the zinc strip. The zinc strip did not complete dissolve.]
-(if: $cation is &quot;zinc hydroxide&quot;)[You observed that not all of the powdered zinc hydroxide was able to dissolve in the acid..]
-(if: $cation is &quot;zinc carbonate&quot;)[You observed effervescence when the powdered zinc carbonate is added, but not all of the zinc carbonate was able to dissolve..]
+(else-if: $cation_repeats - $acid_repeats is 2)[(if: $cation is &quot;zinc metal&quot;)[You observed  effervescence on the surface of the zinc strip. The zinc strip did not complete dissolve.]\
+(else-if: $cation is &quot;zinc hydroxide&quot;)[You observed that not all of the powdered zinc hydroxide was able to dissolve in the acid..]\
+(else-if: $cation is &quot;zinc carbonate&quot;)[You observed effervescence when the powdered zinc carbonate is added, but not all of the zinc carbonate was able to dissolve..]
 
 What do you do now?
 
@@ -143,8 +143,11 @@ You waited until you think you see some small specks of crystals forming in the 
 [[Drying Sample-&gt;Drying Impure Sample]]</tw-passagedata><tw-passagedata pid="11" name="Filter it" tags="" position="1250,500" size="100,100">**Preparation Phase**
 You fold a filter paper into a conical shape and put it in a funnel, and then put it on a retort stand with a beaker below.
 
-(link: &quot;Your carefully pour...&quot;)[==
-Your carefully pour what is in your original 250 cm^^3^^ beaker into the filter paper, taking care not to overfill.
+(link: &quot;You carefully pour...&quot;)[==
+You carefully pour what is in your original 250 cm^^3^^ beaker into the filter paper, taking care not to overfill.
+
+cationrepeats $cation_repeats
+acidrepeats $acid_repeats
 
 (if: $cation_repeats - $acid_repeats &lt; 2)[To your surprise, there is no solid in the original beaker. All of the solution flows right through the filter paper, leaving no residue.
 
@@ -206,7 +209,7 @@ In the future, you could try to add excess metal, insoluble base or carbonate to
 [[Return to the beginning-&gt;Beginning]]</tw-passagedata><tw-passagedata pid="18" name="ConfigurationStartUp" tags="header" position="350,725" size="100,100">(set: $sub to (text-style:&quot;subscript&quot;))\
 (set: $tr to (t8n: &#39;dissolve&#39;))\
 (set: $smallImg to (macro: str-type _name, [
-    (output-data: (print: &#39;&lt;img src=&quot;images/&#39; + _name + &#39;.jpg&quot; alt=&quot;&#39; + _name + &#39;&quot; width=&quot;430&quot; height=&quot;170&quot;&gt;&#39;))
+    (output-data: (print: &#39;&lt;img src=&quot;images/&#39; + _name + &#39;.png&quot; alt=&quot;&#39; + _name + &#39;&quot; width=&quot;430&quot; height=&quot;170&quot;&gt;&#39;))
     ]))\
 (enchant: ?Link, (t8n-depart: &quot;dissolve&quot;))</tw-passagedata><tw-passagedata pid="19" name="InitializeVars" tags="startup" position="350,600" size="100,100">(set: $acid_repeats to 1)
 (set: $cation_repeats to 1)</tw-passagedata></tw-storydata>
