@@ -194,7 +194,7 @@ In order to separate it from the solution, you poured the solution onto a evapor
 You heated it for quite some time due to the excess amount of liquid in your solution.
 ]
 
-(after: time + 4s)[(t8n:&quot;dissolve&quot;)[You waited until you think you see some small specks of crystals forming in the solution. You then took it off the heat for it to [[cool down-&gt; Cool to crystallisation]].
+(after: time + 4s)[(t8n:&quot;dissolve&quot;)[You waited until you think you see some small specks of crystals forming in the solution. You then took it off the heat for it to [[cool down-&gt; Cool to Crystallisation]].
 ](replace:?scene)[&lt;img src=&quot;images/heating_crystal.jpg&quot; alt=&quot;heating&quot; width=&quot;430&quot; height=&quot;265&quot;&gt;]]
 </tw-passagedata><tw-passagedata pid="11" name="Filter it" tags="" position="1250,500" size="100,100">**Preparation Phase**
 (set: _excess to $cation_repeats - $acid_repeats)\
@@ -277,7 +277,7 @@ Here is what you have done:
     (output-data: (print: &#39;&lt;img src=&quot;images/&#39; + _name + &#39;.jpg&quot; alt=&quot;&#39; + _name + &#39;&quot; width=&quot;430&quot; height=&quot;170&quot;&gt;&#39;))
     ]))\
 (enchant: ?Link, (t8n-depart: &quot;dissolve&quot;))</tw-passagedata><tw-passagedata pid="19" name="InitializeVars" tags="startup" position="350,600" size="100,100">(set: $acid_repeats to 1)
-(set: $cation_repeats to 1)</tw-passagedata><tw-passagedata pid="20" name=" Cool to crystallisation" tags="" position="1550,575" size="100,100">**Purification Phase**
+(set: $cation_repeats to 1)</tw-passagedata><tw-passagedata pid="20" name=" Cool to Crystallisation" tags="" position="1550,575" size="100,100">**Purification Phase**
 (set: _excess to $cation_repeats - $acid_repeats)\
 
 &lt;img src=&quot;images/crystals.jpg&quot; alt=&quot;heating&quot; width=&quot;429&quot; height=&quot;283&quot;&gt;
