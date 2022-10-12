@@ -105,7 +105,8 @@ $tr[What do you do now?]
 (else-if: _excess is 2)[(if: $cation is &quot;zinc metal&quot;)[[($smallImg: $acid_symbol + &#39;_&#39; + _acid + &#39;_zn_1_bubble&#39;)]&lt;scene|
 You observed  effervescence on the surface of the zinc granules. 
 (after: time + 4s)[(t8n:&quot;dissolve&quot;)[The zinc granules did not completely dissolve. ](replace:?scene)[($smallImg: $acid_symbol + &#39;_&#39; + _acid + &#39;_zn_1&#39;)]]]\
-(else-if: $cation is &quot;zinc hydroxide&quot;)[($smallImg: $acid_symbol + &#39;_&#39; + _acid + &#39;_znoh2_1&#39;)(after: time + 2s)[(t8n:&quot;dissolve&quot;)[You observed that not all of the powdered zinc hydroxide was able to dissolve in the acid.]]]\
+(else-if: $cation is &quot;zinc hydroxide&quot;)[($smallImg: $acid_symbol + &#39;_&#39; + _acid + &#39;_znoh2_1&#39;)
+(after: time + 2s)[(t8n:&quot;dissolve&quot;)[You observed that not all of the powdered zinc hydroxide was able to dissolve in the acid.]]]\
 (else-if: $cation is &quot;zinc carbonate&quot;)[[($smallImg: $acid_symbol + &#39;_&#39; + _acid + &#39;_znco3_1&#39;)]&lt;scene|
 You observed effervescence when the powdered zinc carbonate is added.
 (after: time + 2s)[(t8n:&quot;dissolve&quot;)[Not all of the zinc carbonate was able to dissolve.](replace:?scene)[($smallImg: $acid_symbol + &#39;_&#39; + _acid + &#39;_znco3_1&#39;)]]]\
@@ -194,37 +195,34 @@ You heated it for quite some time due to the excess amount of liquid in your sol
 You waited until you think you see some small specks of crystals forming in the solution. You then took it off the heat for it to cool down.
 
 [[Drying Sample-&gt;Drying Impure Sample]]</tw-passagedata><tw-passagedata pid="11" name="Filter it" tags="" position="1250,500" size="100,100">**Preparation Phase**
-You fold a filter paper into a conical shape and put it in a funnel, and then put it on a retort stand with a beaker below.
+(set: _excess to $cation_repeats - $acid_repeats)\
+You fold a filter paper into a conical shape and put it in a funnel, and then put it on a conical flask.
 
-(link: &quot;You carefully pour...&quot;)[==
+(link: &quot;You pour carefully...&quot;)[==
 You carefully pour what is in your original 250 cm^^3^^ beaker into the filter paper, taking care not to overfill.
 
-cationrepeats $cation_repeats
-acidrepeats $acid_repeats
-
-(if: $cation_repeats - $acid_repeats &lt; 2)[To your surprise, there is no solid in the original beaker. All of the solution flows right through the filter paper, leaving no residue.
+(if: _excess &lt; 2)[[&lt;img src=&quot;images/pouring_empty.jpg&quot; alt=&quot;pouring_empty&quot; width=&quot;320&quot; height=&quot;290&quot;&gt;]&lt;scene|
+To your surprise, there is no solid in the original beaker. 
+(after: time + 2s)[(t8n:&quot;dissolve&quot;)[All of the solution flows right through the filter paper, leaving no residue.
+](replace:?scene)[($smallImg: $acid_symbol + &#39;_&#39; + (str: $acid_repeats) + &#39;_&#39; + $cation_symbol +&#39;_0&#39;)]]
 
 You rinse out the original beaker. You are now back to square one before filtration.
 
 What do you do now?
 
-[[Add more solid]]
+(if: $cation_repeats &lt; 6)[ [[Add more solid]]]
 [[Add more acid]]
 [[Filter it]]
-[[Just heat up the solution-&gt;Heat it]]]
+[[Just heat up the solution-&gt;Heat it]]]\
+(else: )[[(print: &#39;&lt;img src=&quot;images/pouring_&#39; + $cation_symbol + &#39;.jpg&quot; alt=&quot;&#39; + &#39;pouring_&#39; + $acid_symbol + &#39;&quot; width=&quot;320&quot; height=&quot;290&quot;&gt;&#39;)]&lt;scene|
+The mixture of undissolved solid and solution flows through the filter paper (if:_excess is 2)[quickly, separating into filtrate and residue.](else:)[ slowly as there is a lot of residue.]
 
-(else-if: $cation_repeats - $acid_repeats is 2)[The mixture of undissolved solid and solution flows through the filter paper quickly, separating into filtrate and residue. you hope that your salt, ZnSO$sub[4], is somewhere in here.
-
-Where do you think your salt is?
-
-[[Filtrate]]
-[[Residue]]]
-(else: )[The mixture of undissolved solid and solution flows through the filter paper slowly as there is a lot of residue. Your salt ZnSO$sub[4] is somewhere in here.
+(after: time + 2s)[(t8n:&quot;dissolve&quot;)[Your salt ZnSO$sub[4] is somewhere in here.](replace:?scene)[&lt;img src=&quot;images/filtration_choice.jpg&quot; alt=&quot;filtration_choice&quot; width=&quot;320&quot; height=&quot;290&quot;&gt;]]
 
 Where do you think your salt is?
 
-[[Filtrate]]
-[[Residue]]]</tw-passagedata><tw-passagedata pid="12" name="Filtrate" tags="" position="1400,500" size="100,100">**Purification Phase**
+[[Residue]]
+[[Filtrate]]]</tw-passagedata><tw-passagedata pid="12" name="Filtrate" tags="" position="1400,500" size="100,100">**Purification Phase**
 You think that your product, ZnSO$sub[4] is in the filtrate.
 
 (link: &quot;Heat until saturation...&quot;)[==
