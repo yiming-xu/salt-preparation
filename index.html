@@ -41,7 +41,7 @@ You would need to use to choose an appropriate //acid// and //solid// for the re
 &lt;!-- [[Zinc nitrate]] --&gt;</tw-passagedata><tw-passagedata pid="4" name="Method3" tags="" position="500,700" size="100,100">**Planning Phase**
 You have chosen to synthesize ZnSO$sub[4] using precipitation.
 
-Titration is used when the salt is insoluble in water. In this case, as ZnSO$sub[4] is soluble in water, you should not use precipitation.
+Precipitation is used when the salt is insoluble in water. In this case, as ZnSO$sub[4] is soluble in water, you should not use precipitation.
 
 [[Click here to try again-&gt;Beginning]]</tw-passagedata><tw-passagedata pid="5" name="Zinc nitrate" tags="" position="650,700" size="100,100">**Planning Phase**
 Aha, you got tricked! 
@@ -81,7 +81,7 @@ $tr[What do you do now?]
 
 [[Add more solid]]
 [[Add more acid]]
-[[Filter it]]</tw-passagedata><tw-passagedata pid="8" name="Add more solid" tags="" position="1100,300" size="100,100">**Preparation Phase**
+[[Filter it]]</tw-passagedata><tw-passagedata pid="8" name="Add more solid" tags="" position="1050,300" size="100,100">**Preparation Phase**
 You carefully added a little more $cation the acidic solution.
 (set: $cation_repeats to $cation_repeats + 1)\
 (set: _excess to $cation_repeats - $acid_repeats)\
@@ -133,7 +133,7 @@ $tr[What do you do now?]
 
 [[Add more solid]]
 [[Add more acid]]
-[[Filter it]]]</tw-passagedata><tw-passagedata pid="9" name="Add more acid" tags="" position="1100,700" size="100,100">**Preparation Phase**
+[[Filter it]]]</tw-passagedata><tw-passagedata pid="9" name="Add more acid" tags="" position="1050,700" size="100,100">**Preparation Phase**
 You added another 100 cm^^3^^ of $acid to the acidic solution.
 (set: $acid_repeats to $acid_repeats + 1)\
 (set: _excess to $cation_repeats - $acid_repeats)\
@@ -183,7 +183,7 @@ What do you do now?
 
 (if:$cation_repeats &lt; 6)[ [[Add more solid]]]
 [[Add more acid]]
-[[Filter it]]]</tw-passagedata><tw-passagedata pid="10" name="Heat it" tags="" position="1550,450" size="100,100">**Purification Phase**
+[[Filter it]]]</tw-passagedata><tw-passagedata pid="10" name="Heat it" tags="" position="1375,400" size="100,100">**Purification Phase**
 (set: _excess to $cation_repeats - $acid_repeats)\
 
 In order to separate it from the solution, you poured the solution onto a evaporating dish, and heated gently it with a bunsen burner.
@@ -196,7 +196,7 @@ You heated it for quite some time due to the excess amount of liquid in your sol
 
 (after: time + 4s)[(t8n:&quot;dissolve&quot;)[You waited until you think you see some small specks of crystals forming in the solution. You then took it off the heat for it to [[cool down-&gt; Cool to Crystallisation]].
 ](replace:?scene)[&lt;img src=&quot;images/heating_crystal.jpg&quot; alt=&quot;heating&quot; width=&quot;430&quot; height=&quot;265&quot;&gt;]]
-</tw-passagedata><tw-passagedata pid="11" name="Filter it" tags="" position="1250,500" size="100,100">**Preparation Phase**
+</tw-passagedata><tw-passagedata pid="11" name="Filter it" tags="" position="1150,500" size="100,100">**Preparation Phase**
 (set: _excess to $cation_repeats - $acid_repeats)\
 You fold a filter paper into a conical shape and put it in a funnel, and then put it on a conical flask.
 
@@ -225,15 +225,15 @@ The mixture of undissolved solid and solution flows through the filter paper (if
 $tr[Where do you think your salt is?]
 
 [[Residue]]
-[[Filtrate]]]</tw-passagedata><tw-passagedata pid="12" name="Filtrate" tags="" position="1400,550" size="100,100">**Purification Phase**
+[[Filtrate]]]</tw-passagedata><tw-passagedata pid="12" name="Filtrate" tags="" position="1300,550" size="100,100">**Purification Phase**
 You think that your product, ZnSO$sub[4] is in the filtrate.
 
 You recall that you need to separate the solid from the solution by evaporating to dryness.
 
-[[Heat until saturation-&gt;Heat it]]</tw-passagedata><tw-passagedata pid="13" name="Residue" tags="" position="1325,700" size="100,100">**Preparation Phase**
+[[Heat until saturation-&gt;Heat it]]</tw-passagedata><tw-passagedata pid="13" name="Residue" tags="" position="1225,700" size="100,100">**Preparation Phase**
 The residue is actually the leftover, excess $cation. This method is also called the excess solid method.
 
-ZnSO$sub[4] is soluble in water, and is found in the [[filtrate-&gt;Filtrate]].</tw-passagedata><tw-passagedata pid="14" name="Filter, Wash and Dry" tags="" position="1700,600" size="100,100">**Purification Phase**
+ZnSO$sub[4] is soluble in water, and is found in the [[filtrate-&gt;Filtrate]].</tw-passagedata><tw-passagedata pid="14" name="Filter, Wash and Dry" tags="" position="1600,600" size="100,100">**Purification Phase**
 
 (link: &quot;Filter the cooled mixture...&quot;)[==\
 After the solution cooled down, you carried out another filtration to collect the crystals that have formed. 
@@ -244,14 +244,14 @@ You washed the residue with cold, distilled water.
 (link: &quot;Dry the crystals...&quot;)[==\
 You dried what you hoped to be ZnSO$sub[4] between several sheets of filter paper.
 
-[[Product]]</tw-passagedata><tw-passagedata pid="15" name="Product" tags="" position="1850,600" size="100,100">(if: $acid is &quot;nitric acid&quot;)[You obtained zinc nitrate instead, as you used nitric acid. You would have to use &#39;&#39;sulfuric acid&#39;&#39; in order to obtain the correct anion for the salt.]
+[[Product]]</tw-passagedata><tw-passagedata pid="15" name="Product" tags="" position="1750,600" size="100,100">(if: $acid is &quot;nitric acid&quot;)[You obtained zinc nitrate instead, as you used nitric acid. You would have to use &#39;&#39;sulfuric acid&#39;&#39; in order to obtain the correct anion for the salt.]
 (else-if: $acid is &quot;hydrochloric acid&quot;)[You obtained zinc chloride instead, as you used hydrochloric acid. You would have to use &#39;&#39;sulfuric acid&#39;&#39; in order to obtain the correct anion for the salt.]
 (else:)[Congratulations! You obtained a pure, dry sample of zinc sulfate!]
 
 Here is what you have done:
 (print: (joined: &quot;&lt;br&gt;&quot;, ...(history: )))
 
-(link: &quot;Return to the beginning&quot;)[(restart:)]</tw-passagedata><tw-passagedata pid="16" name="Filter, Wash and Dry Impure" tags="" position="1700,400" size="100,100">**Purification Phase**
+(link: &quot;Return to the beginning&quot;)[(restart:)]</tw-passagedata><tw-passagedata pid="16" name="Filter, Wash and Dry Impure" tags="" position="1600,400" size="100,100">**Purification Phase**
 
 (link: &quot;Filter the cooled mixture...&quot;)[==\
 After the solution cooled down, you carried out another filtration to collect the crystals that have formed. 
@@ -262,7 +262,7 @@ You washed the residue with cold, distilled water.
 (link: &quot;Dry the crystals...&quot;)[==\
 You dried what you hoped to be ZnSO$sub[4] between several sheets of filter paper.
 
-[[Product-&gt;Impure Product]]</tw-passagedata><tw-passagedata pid="17" name="Impure Product" tags="" position="1850,400" size="100,100">(if: $acid is &quot;nitric acid&quot;)[You obtained zinc nitrate instead, as you used nitric acid. You would have to use &#39;&#39;sulfuric acid&#39;&#39; in order to obtain the correct anion for the salt.]
+[[Product-&gt;Impure Product]]</tw-passagedata><tw-passagedata pid="17" name="Impure Product" tags="" position="1750,400" size="100,100">(if: $acid is &quot;nitric acid&quot;)[You obtained zinc nitrate instead, as you used nitric acid. You would have to use &#39;&#39;sulfuric acid&#39;&#39; in order to obtain the correct anion for the salt.]
 (else-if: $acid is &quot;hydrochloric acid&quot;)[You obtained zinc chloride instead, as you used nitric acid. You would have to use &#39;&#39;sulfuric acid&#39;&#39; in order to obtain the correct anion for the salt.]
 (else:)[Congratulations! You obtained a generally dry sample of zinc sulfate! However, not all of the acids were removed during the crystallisation step, and your crystal is slightly acidic.
 
@@ -277,7 +277,7 @@ Here is what you have done:
     (output-data: (print: &#39;&lt;img src=&quot;images/&#39; + _name + &#39;.jpg&quot; alt=&quot;&#39; + _name + &#39;&quot; width=&quot;430&quot; height=&quot;170&quot;&gt;&#39;))
     ]))\
 (enchant: ?Link, (t8n-depart: &quot;dissolve&quot;))</tw-passagedata><tw-passagedata pid="19" name="InitializeVars" tags="startup" position="350,600" size="100,100">(set: $acid_repeats to 1)
-(set: $cation_repeats to 1)</tw-passagedata><tw-passagedata pid="20" name=" Cool to Crystallisation" tags="" position="1550,575" size="100,100">**Purification Phase**
+(set: $cation_repeats to 1)</tw-passagedata><tw-passagedata pid="20" name=" Cool to Crystallisation" tags="" position="1450,550" size="100,100">**Purification Phase**
 (set: _excess to $cation_repeats - $acid_repeats)\
 
 &lt;img src=&quot;images/crystals.jpg&quot; alt=&quot;heating&quot; width=&quot;429&quot; height=&quot;283&quot;&gt;
